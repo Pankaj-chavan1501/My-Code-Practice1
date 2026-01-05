@@ -42,6 +42,42 @@ public class Array1 {
         arr.set(index, val);
     }
 
+    /*Given an array of arr[] positive integers where all numbers occur even number of times except one number which
+     *occurs odd number of times. Return that number.
+     *Examples:
+     * Input:arr[] = [1, 2, 3, 2, 3, 1, 3]
+     * Output: 3
+     * Explaination: 3 occurs three times.
+     */
+    //Brute force code
+    public static int getOddOccurrence(int[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+            if ((count / 2) * 2 != count) {
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+
+    //optimised solution
+    public static int getOddOccurrence1(int[] arr) {
+        int i = 0;
+        int result = 0;
+        int r = arr.length;
+
+        while (i < r) {
+            result = result ^ arr[i];
+            i++;
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         ArrayList<Integer> at = new ArrayList<Integer>();
@@ -52,5 +88,10 @@ public class Array1 {
         at.add(5);
         insertAtIndex(at, 2, 90);
         System.out.println(at);
+
+        int arr[] = {1, 2, 3, 2, 3, 1, 3};
+        int k = getOddOccurrence1(arr);
+        System.out.println(k);
+
     }
 }
