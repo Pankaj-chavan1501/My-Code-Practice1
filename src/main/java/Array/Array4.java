@@ -30,6 +30,7 @@ public class Array4 {
     }
 
     public static void main(String[] args) {
+        System.out.println("this is my main method");
         int[] arr = {1, 2, 3, 4, 5};
         int[] k = reverseArrayoptmised(arr);
         for (int num : k) {
