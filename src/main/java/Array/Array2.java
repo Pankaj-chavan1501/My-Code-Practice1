@@ -39,7 +39,32 @@ public class Array2 {
         }
         return longestStr;
     }
-    public static void main(String[]args){
+    /* Given an alphanumeric string s,return the second  largest numerical digit that appears in s, or -1
+     *if it An alphanymeric string is a string consisting of lowercase English letter and digits.
+     *
+     * Example 1:
+     * Input :s="dfa12321afd"
+     * Explanation: The digits that appear in s are [1,2,3].the second largest digit 2
+     */
+
+    public static int secondHighest(String s) {
+        int largest = -1;
+        int secondlargest = -1;
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                int num = ch - '0';
+                if (num > largest) {
+                    secondlargest = largest;
+                    largest = num;
+                } else if (num < largest && num > secondlargest) {
+                    secondlargest = num;
+                }
+            }
+        }
+        return secondlargest;
+    }
+
+    public static void main(String[] args) {
         int key = 2;
         int[] arr = {10, 20, 30, 40, 50};
         int k = findElementAtIndex(key, arr);
@@ -48,5 +73,11 @@ public class Array2 {
         List<String> list = new ArrayList<>(Arrays.asList("Geek", "Geeks", "Geeksfor", "GeeksforGeek", "GeeksforGeeks"));
         String now = longest(list);
         System.out.println(now);
+
+        String s = "dfa12321afd";
+        int m = secondHighest(s);
+        System.out.println(m);
+
+
     }
-    }
+}
