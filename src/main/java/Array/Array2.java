@@ -24,6 +24,15 @@ public class Array2 {
         return -1;
     }
 
+    //optimised solution
+    public static int findElementAtIndex1(int key, int[] arr) {
+        if (key >= 0 && key < arr.length) {
+            return arr[key];
+        }
+        return -1;
+    }
+
+
     public static String longest(List<String> arr) {
         // code here
         int count = 0;
